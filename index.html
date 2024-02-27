@@ -29,8 +29,8 @@
       container: 'map',
       // Replace YOUR_STYLE_URL with your style URL.
       style: 'mapbox://styles/stevene4/clsxuozam004a01pyhekzci8y', 
-      center: [-87.661557, 41.893748],
-      zoom: 10.7
+      center: [28.661557, 14.893748],
+      zoom: 7
     });
 
     // Code from the next step will go here.
@@ -40,7 +40,7 @@ Add an event listener that runs
 */
 map.on('click', (event) => {
   // If the user clicked on one of your markers, get its information.
-  const features = map.queryRenderedFeatures(event.point, {
+  const features = map.queryRenderedFeatures(event.polygon, {
     layers: ['sudanese-displacement'] // replace with your layer name
   });
   if (!features.length) {
