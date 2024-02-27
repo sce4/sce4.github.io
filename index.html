@@ -26,13 +26,11 @@
   });
 
   map.on('load', function () {
-    // Add a Mapbox dataset as a source
     map.addSource('your-data-source-id', {
       type: 'vector',
       url: 'mapbox://stevene4.clsw8ncsy18791mnyatt56v60' // Replace with your Mapbox username and dataset ID
     });
 
-    // Add a layer using the Mapbox dataset source
     map.addLayer({
       id: 'your-layer-id',
       type: 'fill',
