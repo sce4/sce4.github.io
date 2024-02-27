@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Map with Mapbox Data</title>
+  <title>My Map</title>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
   <style>
@@ -24,30 +24,6 @@
     center: [-74.5, 40],
     zoom: 9
   });
-
-  map.on('load', function () {
-    // Add a Mapbox dataset as a source
-    map.addSource('your-data-source-id', {
-      type: 'vector',
-      url: 'mapbox://stevene4.clsw8ncsy18791mnyatt56v60' // Replace with your Mapbox username and dataset ID
-    });
-
-    // Add a fill layer using the Mapbox dataset source
-    map.addLayer({
-      id: 'your-layer-id',
-      type: 'fill',
-      source: 'your-data-source-id',
-      'source-layer': 'stevene4.clsw8ncsy18791mnyatt56v60-3pzwy', // Replace with your dataset's layer ID
-      paint: {
-        'fill-color': '#221511', // Customize the fill color
-        'fill-opacity': 0.5
-      }
-    });
-  });
-</script>
-
-</body>
-</html>
 </script>
 
 </body>
