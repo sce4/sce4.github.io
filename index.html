@@ -23,43 +23,34 @@
   <body>
     <div id='map'></div>
     <script>
-    // The value for 'accessToken' begins with 'pk...'
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmVuZTQiLCJhIjoiY2xzdzJsMDYyMGJ5cTJsbW1pdWd4a3JxdyJ9.4CCktbH2LOtfXmCJc34Vgg'; 
     const map = new mapboxgl.Map({
       container: 'map',
-      // Replace YOUR_STYLE_URL with your style URL.
       style: 'mapbox://styles/stevene4/clsxuozam004a01pyhekzci8y', 
       center: [28.661557, 14.893748],
       zoom: 5
     });
 
-    // Code from the next step will go here.
-/* 
-Add an event listener that runs
-  when a user clicks on the map element.
-*/
-map.on('click', (event) => {
-  // If the user clicked on one of your markers, get its information.
-  const features = map.queryRenderedFeatures(event.point, {
-    layers: ['sudanese-displacement'] // replace with your layer name
-  });
-  if (!features.length) {
-    return;
-  }
-  const feature = features[0];
+    // Listen for the 'click' event on the map
+    map.on('click', (event) => {
+      // Use queryRenderedFeatures to get features from a specific layer
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: ['stevene4.clsw8ncsy18791mnyatt56v60-3pzwy'] // Replace with your layer name
+      });
 
-  // Code from the next step will go here.
-  /* 
-    Create a popup, specify its options 
-    and properties, and add it to the map.
-  */
-const popup = new mapboxgl.Popup({ offset: [0, -15] })
-  .setLngLat(feature.geometry.coordinates)
-  .setHTML(
-    `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-  )
-  .addTo(map);
-});
+      if (!features.length) {
+        return;
+      }
+
+      const feature = features[0];
+
+      const popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(event.lngLat)
+        .setHTML(
+          `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+        )
+        .addTo(map);
+    });
     </script>
   </body>
 </html>
