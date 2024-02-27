@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
-    <title>Points on a map</title>
+    <title>Polygons on a map</title>
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.css' rel='stylesheet' />
@@ -23,34 +23,59 @@
   <body>
     <div id='map'></div>
     <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmVuZTQiLCJhIjoiY2xzdzJsMDYyMGJ5cTJsbW1pdWd4a3JxdyJ9.4CCktbH2LOtfXmCJc34Vgg'; 
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/stevene4/clsxuozam004a01pyhekzci8y', 
-      center: [28.661557, 14.893748],
-      zoom: 5
-    });
-
-    // Listen for the 'click' event on the map
-    map.on('click', (event) => {
-      // Use queryRenderedFeatures to get features from a specific layer
-      const features = map.queryRenderedFeatures(event.point, {
-        layers: ['stevene4.clsw8ncsy18791mnyatt56v60-3pzwy'] // Replace with your layer name
+      mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmVuZTQiLCJhIjoiY2xzdzJsMDYyMGJ5cTJsbW1pdWd4a3JxdyJ9.4CCktbH2LOtfXmCJc34Vgg'; 
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/stevene4/clsxuozam004a01pyhekzci8y', 
+        center: [28.661557, 14.893748],
+        zoom: 5
       });
 
-      if (!features.length) {
-        return;
-      }
+      map.on('click', 'sudanese-displacement', (event) => {
+        const features = map.queryRenderedFeatures(event.point, {
+          layers: ['sudanese-displacement']
+        });
 
-      const feature = features[0];
+        if (!features.length) {
+          return;
+        }
 
-      const popup = new mapboxgl.Popup({ offset: [0, -15] })
-        .setLngLat(event.lngLat)
-        .setHTML(
-          `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-        )
-        .addTo(map);
-    });
+        const feature = features[0];
+
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+          .setLngLat(event.lngLat)
+          .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+          )
+          .addTo(map);
+      });
+
+      // Change cursor style on hover to indicate clickable feature
+      map.on('mouseenter', 'sudanese-displacement', () => {
+        map.getCanvas().style.cursor = 'pointer';
+      });
+
+      // Change cursor style back to default when not hovering
+      map.on('mouseleave', 'sudanese-displacement', () => {
+        map.getCanvas().style.cursor = '';
+      });
+
+      // Add polygon layer to the map
+      map.on('load', () => {
+        map.addLayer({
+          id: 'sudanese-displacement',
+          type: 'fill',
+          source: {
+            type: 'vector',
+            url: 'mapbox://stevene4.clsw8ncsy18791mnyatt56v60'
+          },
+          'source-layer': 'stevene4.clsw8ncsy18791mnyatt56v60-3pzwy',
+          paint: {
+            'fill-color': '#FF0000',
+            'fill-opacity': 0.5
+          }
+        });
+      });
     </script>
   </body>
 </html>
