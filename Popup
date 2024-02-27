@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Mapbox Popup Example</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmVuZTQiLCJhIjoiY2xzdzJsMDYyMGJ5cTJsbW1pdWd4a3JxdyJ9.4CCktbH2LOtfXmCJc34Vgg';
+
+  // Initialize the map
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/stevene4/clsxuozam004a01pyhekzci8y', // Replace with your style URL
+    center: [12.84, 34.7],
+    zoom: 3.99
+  });
+
+  // Add a click event listener to the layer containing your polygons
+  map.on('click', 'stevene4.clsw8ncsy18791mnyatt56v60-3pzwy', function (e) {
+    // Use the point features in the clicked area to display the popup
+    var features = e.features;
+
+    if (!features.length) {
+      return;
+    }
+
+    var popupHTML = '<h3>' + features[0].properties.title + '</h3>' +
+                    '<p>' + features[0].properties.description + '</p>';
+
+    // Display the popup
+    new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(popupHTML)
+      .addTo(map);
+  });
+
+  // Change the cursor to a pointer when hovering over the polygon layer
+  map.on('mouseenter', 'stevene4.clsw8ncsy18791mnyatt56v60-3pzwy', function () {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  // Change it back to the default cursor when no longer hovering
+  map.on('mouseleave', 'stevene4.clsw8ncsy18791mnyatt56v60-3pzwy', function () {
+    map.getCanvas().style.cursor = '';
+  });
+</script>
+
+</body>
+</html>
