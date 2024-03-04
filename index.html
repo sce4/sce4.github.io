@@ -39,17 +39,15 @@
         // Example code to create a simple Leaflet map
         var map = L.map('map').setView([13.375, 23.197], 12); // Set initial view
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
         // Add your GeoJSON data as a layer if needed
-    var geojsonFeature = {
-      "type": "Feature",
-      "properties": {
-        "title": "West Darfur",
-        "description": "Over 230,000 people internally displaced and over 160,000 internally displaced people there"
+    var polygons = [
+            {
+                coords: [
       },
       "geometry": {
         "coordinates": [
@@ -1960,19 +1958,10 @@
             ]
           ]
         ],
-        "type": "Polygon"
-      },
-      "id": "181a27fdd03169879ac02a7cc4b814c2"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "Central Darfur",
-        "description": "Over 280,000 people internally displaced and over 410,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+        "popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               24.448582,
               13.12243
@@ -2825,21 +2814,11 @@
               24.448582,
               13.12243
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "290ab761aa6b63b63981fb4e2685cd3c"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "White Nile",
-        "description": "Over 8,000 people internally displaced and over 500,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               32.55259,
               15.185818
@@ -4048,21 +4027,11 @@
               32.55259,
               15.185818
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "2f742bf928da9f43563a8069defd2152"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "North Kordofan",
-        "description": "Over 40,000 people internally displaced and over 140,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               31.699939,
               16.517921
@@ -4943,21 +4912,11 @@
               31.699939,
               16.517921
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "3ef96087e78294f32d01a08c0ba91982"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "Khartoum",
-        "description": "Over 3,500,000 people internally displlaced and Over 40,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               31.701034,
               16.522206
@@ -5310,21 +5269,11 @@
               31.701034,
               16.522206
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "9e757a8a2a7c29d818fa65f68c88cc33"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "South Darfur",
-        "description": "Over 960,000 people internally displaced and over 730,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               22.868923,
               10.91428
@@ -5933,21 +5882,11 @@
               22.868923,
               10.91428
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "a1862b48bd253afb24d1886cfd013d5e"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "East Darfur",
-        "description": "Over 70,000 people internally displaced and over 660,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               25.456312,
               12.961992
@@ -6536,21 +6475,11 @@
               25.456312,
               12.961992
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "ace63eba87877e9073954c8d1bf7f600"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "Aj Jazirah",
-        "description": "Over 450,000 people internally displaced and over 340,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+         ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               33.583969,
               15.442281
@@ -7963,21 +7892,11 @@
               33.583969,
               15.442281
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "c955d1cd54765aa7bf50713d8a947b3e"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "South Kordofan",
-        "description": "Over 70,000 people internally displaced and over 100,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               31.686542,
               12.57934
@@ -8522,21 +8441,11 @@
               31.686542,
               12.57934
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "cd17fb45cacf4b599631633f5f5f256f"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "Sennar",
-        "description": "Over 15,000 people internally displaced and over 430,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               33.988036,
               13.998654
@@ -10289,21 +10198,11 @@
               33.988036,
               13.998654
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "db97ce06afcf0207f8191453d5ed1de0"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "North Darfur",
-        "description": "Over 510,000 people internally displaced and over 460,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               23.999226,
               20.000245
@@ -11196,21 +11095,11 @@
               23.999226,
               20.000245
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "deff66e5715945df5125526b12ab886e"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "title": "West Kordofan",
-        "description": "Over 60,000 people internally displaced and over 130,000 internally displaced people there"
-      },
-      "geometry": {
-        "coordinates": [
-          [
+          ],
+                popupContent: "Popup for Polygon 1"
+            },
+            {
+                coords: [
             [
               27.442677,
               14.096433
@@ -11975,15 +11864,17 @@
               27.442677,
               14.096433
             ]
-          ]
-        ],
-        "type": "Polygon"
-      },
-      "id": "e8ae5ba6a00051c3c52d8d345198c22c"
-    };
- L.geoJSON(geojsonFeature).addTo(map);
-        // var geojsonFeature = { ... }; // Your GeoJSON feature
-        // L.geoJSON(geojsonFeature).addTo(map);
+          ],
+                popupContent: "Popup for Polygon 2"
+            }
+        ];
+
+        // Loop through the array and create polygons with popups
+        polygons.forEach(function(polygonData) {
+            var polygon = L.polygon(polygonData.coords).addTo(map);
+            polygon.bindPopup(polygonData.popupContent);
+        });
+
     </script>
 </body>
 </html>
