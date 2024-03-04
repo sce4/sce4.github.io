@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaflet Map Example</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha384-Vi1zbIRqJw2s+ecII5GPfGjQFqokb0PeJzPrTTeNtBwbbfzg2XFAfTx6C5NVLVTD"
-     crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body { margin: 0; padding: 0; }
         #map { height: 100vh; }
@@ -14,41 +12,41 @@
 </head>
 <body>
     <div id="map"></div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha384-Vi1zbIRqJw2s+ecII5GPfGjQFqokb0PeJzPrTTeNtBwbbfzg2XFAfTx6C5NVLVTD"
-     crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([13.375, 23.197], 12);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+        document.addEventListener("DOMContentLoaded", function() {
+            var map = L.map('map').setView([13.375, 23.197], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
 
-        var polygons = [
-            {
-                coords: [
-                    [23.203359, 13.391471],
-                    [23.201163, 13.349969],
-                    [23.193008, 13.305714],
-                    [27.442677, 14.096433],
-                    [23.203359, 13.391471]  // Closing coordinate to complete the loop
-                ],
-                popupContent: "Popup for Polygon 1"
-            },
-            {
-                coords: [
-                    [24.0, 13.5],
-                    [24.1, 13.4],
-                    [23.9, 13.6],
-                    [24.0, 13.5]  // Closing coordinate to complete the loop
-                ],
-                popupContent: "Popup for Polygon 2"
-            }
-        ];
+            var polygons = [
+                {
+                    coords: [
+                        [23.203359, 13.391471],
+                        [23.201163, 13.349969],
+                        [23.193008, 13.305714],
+                        [27.442677, 14.096433],
+                        [23.203359, 13.391471]  // Closing coordinate to complete the loop
+                    ],
+                    popupContent: "Popup for Polygon 1"
+                },
+                {
+                    coords: [
+                        [24.0, 13.5],
+                        [24.1, 13.4],
+                        [23.9, 13.6],
+                        [24.0, 13.5]  // Closing coordinate to complete the loop
+                    ],
+                    popupContent: "Popup for Polygon 2"
+                }
+            ];
 
-        // Loop through the array and create polygons with popups
-        polygons.forEach(function(polygonData) {
-            var polygon = L.polygon(polygonData.coords).addTo(map);
-            polygon.bindPopup(polygonData.popupContent);
+            // Loop through the array and create polygons with popups
+            polygons.forEach(function(polygonData) {
+                var polygon = L.polygon(polygonData.coords).addTo(map);
+                polygon.bindPopup(polygonData.popupContent);
+            });
         });
     </script>
 </body>
