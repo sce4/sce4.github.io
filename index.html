@@ -11882,7 +11882,16 @@
             var polygon = L.polygon(polygonData.coords).addTo(map);
             polygon.bindPopup(polygonData.popupContent);
         });
+var points = [
+            { coords: [13.806323, 22.501908], popupContent: "Sirba: Darfur Village, Sirba, burned to the ground over 500 killed by RSF (July 2023)" },
+    { coords: [15.638573, 32.495951], popupContent: "Omdurman: The SAF regained control of the Abrof neighborhood and are currently beseiging the Sudan Radio and Television Corporation headquarters. Many civilians have been caught in the crossfire and injured or killed (Feb 2024)" },
+            // Add more points as needed
+        ];
 
+        points.forEach(function(pointData) {
+            var marker = L.marker(pointData.coords).addTo(map);
+            marker.bindPopup(pointData.popupContent);
+        });
     </script>
 </body>
 </html>
